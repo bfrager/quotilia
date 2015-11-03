@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :users
+  root 'users#index'
+
+  resources :users, only: [:new, :index, :create, :show]
+
+  get 'login', to: 'sessions#new'
+  resources :sessions, only: [:new, :create, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
