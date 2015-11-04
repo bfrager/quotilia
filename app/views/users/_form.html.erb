@@ -10,28 +10,28 @@
     </ul>
   </div>
   <% end %>
-  <div class="field">
-    <%= f.label :f_name %>
-    <%= f.text_field :f_name %>
-  <div class="field">
-    <%= f.label :l_name %>
-    <%= f.text_field :l_name %>
-  <div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <form class="form-inline">
+    <div class="form-group">
+      <div class="field">
+        <%= f.text_field :f_name, :placeholder => 'First Name'  %>
+      </div>
+      <div class="field">
+        <%= f.text_field :l_name, :placeholder => 'Last Name' %>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.text_field :username, :placeholder => 'Username' %>
+    </div>
+    <div class="field">
+      <%= f.text_field :email, :placeholder => 'Email' %>
+    </div>
+    <div class="field">
+      <%= f.password_field :password, :placeholder => 'Password'%>
+    </div>
+    <div class="field">
+      <%= f.password_field :password_confirmation, :placeholder => 'Reenter Password' %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
