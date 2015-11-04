@@ -1,4 +1,8 @@
 <h1>Sign Up</h1>
+
+<h1>Date Picker</h1>
+<input type:"text" id="datepicker">
+
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
   <div class="error_messages">
@@ -35,3 +39,7 @@
       <%= f.submit %>
     </div>
 <% end %>
+
+<script type="text/JavaScript">
+  $('#datepicker').datepicker();
+</script>

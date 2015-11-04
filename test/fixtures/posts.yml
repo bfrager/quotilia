@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  background: MyString
+  stylesheet: MyString
+  file_type: MyString
+  user_id: 
+  repost_from: MyString
+
+two:
+  background: MyString
+  stylesheet: MyString
+  file_type: MyString
+  user_id: 
+  repost_from: MyString
