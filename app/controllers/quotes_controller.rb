@@ -10,19 +10,21 @@ class QuotesController < ApplicationController
 
   def new
     @quote = Quote.new
-    @creator = Creator.new
-    @source = Source.new
+    # @creator = Creator.new
+    # @source = Source.new
   end
 
   def create
+    # defaults = {:content=>"", :creator_attributes[:name]=>"", :source_attributes[:title]=>""}
+    # quote_params = defaults.merge(quote_params)
     @quote = Quote.new(quote_params)
-    @creator = Creator.where(params[:creator_attributes][:name]).first_or_create
-    @source = Source.where(params[:source_attributes][:title]).first_or_create
+    # @creator = Creator.where(params[:creator_attributes][:name]).first_or_create
+    # @source = Source.where(params[:source_attributes][:title]).first_or_create
     @user = current_user
     @user.quotes << @quote
-    @creator.quotes << @quote
-    @source.quotes << @quote
-    if @quote.save && @creator.save && @source.save
+    # @creator.quotes << @quote
+    # @source.quotes << @quote
+    if @quote.save # && @creator.save && @source.save
       flash[:quote_id] = @quote.id
       redirect_to @quote, notice: "Successfully created new quote!"
     else
@@ -34,6 +36,11 @@ class QuotesController < ApplicationController
   end
 
   def edit
+    # @quote = Quote.new(quote_params)
+    # @creator = Creator.new(quote_params[creator_attributes])
+    # @source = Source.new(quote_params[source_attributes])
+    # @creator = Creator.where(params[:creator_attributes][:name]).first_or_create
+    # @source = Source.where(params[:source_attributes][:title]).first_or_create
   end
 
   def update
@@ -46,6 +53,7 @@ class QuotesController < ApplicationController
 
   def destroy
     @quote.destroy
+    redirect_to quotes_path, notice: "Quote deleted!"
   end
 
   private

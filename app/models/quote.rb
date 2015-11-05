@@ -5,8 +5,8 @@ class Quote < ActiveRecord::Base
     has_many :posts
     belongs_to :source
 
-    accepts_nested_attributes_for :creator, reject_if: :all_blank
-    accepts_nested_attributes_for :source, reject_if: :all_blank
+    accepts_nested_attributes_for :creator
+    accepts_nested_attributes_for :source
 
     # calendar :through example:
     # has_many :event_users

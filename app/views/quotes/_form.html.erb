@@ -1,11 +1,11 @@
 <%= form_for @quote do |f| %>
   <%= f.label :Quote %>
   <%= f.text_area :content %>
-  <%= f.fields_for :creator do |c| %>
+  <%= f.fields_for :creator, @quote.creator do |c| %>
     <%= c.label :Creator %>
     <%= c.text_field :creator %>
   <% end %>
-  <%= f.fields_for :source do |s| %>
+  <%= f.fields_for :source, @quote.source do |s| %>
     <%= s.label :Source %>
     <%= s.text_field :source %>
   <% end %>
