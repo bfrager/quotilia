@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: 'See you soon!'
+    redirect_to login_path, notice: 'See you soon!'
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104174139) do
+ActiveRecord::Schema.define(version: 20151105012936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20151104174139) do
   end
 
   add_index "boards", ["user_id"], name: "index_boards_on_user_id", using: :btree
+
+  create_table "boards_posts", id: false, force: :cascade do |t|
+    t.integer "board_id", null: false
+    t.integer "post_id",  null: false
+  end
+
+  create_table "boards_themes", id: false, force: :cascade do |t|
+    t.integer "board_id", null: false
+    t.integer "theme_id", null: false
+  end
 
   create_table "creators", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +65,19 @@ ActiveRecord::Schema.define(version: 20151104174139) do
     t.integer  "posts_count"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "creator_id"
+  end
+
+  add_index "quotes", ["creator_id"], name: "index_quotes_on_creator_id", using: :btree
+
+  create_table "quotes_themes", id: false, force: :cascade do |t|
+    t.integer "quote_id", null: false
+    t.integer "theme_id", null: false
+  end
+
+  create_table "quotes_users", id: false, force: :cascade do |t|
+    t.integer "quote_id", null: false
+    t.integer "user_id",  null: false
   end
 
   create_table "sources", force: :cascade do |t|
@@ -75,6 +98,11 @@ ActiveRecord::Schema.define(version: 20151104174139) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "themes_users", id: false, force: :cascade do |t|
+    t.integer "theme_id", null: false
+    t.integer "user_id",  null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "f_name"
     t.string   "l_name"
@@ -87,4 +115,5 @@ ActiveRecord::Schema.define(version: 20151104174139) do
 
   add_foreign_key "boards", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "quotes", "creators"
 end

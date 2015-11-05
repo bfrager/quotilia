@@ -1,0 +1,10 @@
+<h1>Quote <%=@quote.id%></h1>
+
+<div class="quote">
+  <div class="content">
+    <%= @quote.content %>
+  </div>
+</div>
+
+<%= link_to "All Quotes", quotes_path %>
+<%= link_to "Edit", edit_quote_path %>

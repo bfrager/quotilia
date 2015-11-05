@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   root 'users#index'
 
-  resources :users, only: [:new, :index, :create, :show]
+  resources :themes
+
+  resources :boards
+
+  resources :users
+
+  resources :quotes
 
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]

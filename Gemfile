@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'haml', '~> 4.0', '>= 4.0.7'
+gem 'simple_form', '~> 3.2'
 gem 'bootstrap-sass', '~> 3.3.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'

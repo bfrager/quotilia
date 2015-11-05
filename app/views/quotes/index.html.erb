@@ -1,0 +1,10 @@
+<h1>My Quotes</h1>
+
+<% @current_user.quotes.each do |n| %>
+  <div class="quote">
+    <div class="content">
+      <%= n.content %>
+    </div>
+  </div>
+  <%= link_to "See Details", edit_quote_path(n) %>
+<% end %>
