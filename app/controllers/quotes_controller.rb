@@ -9,7 +9,7 @@ class QuotesController < ApplicationController
   end
 
   def new
-    @quote = Quote.new
+    @quote = current_user.quotes.build
     # @creator = Creator.new
     # @source = Source.new
   end
@@ -17,7 +17,7 @@ class QuotesController < ApplicationController
   def create
     # defaults = {:content=>"", :creator_attributes[:name]=>"", :source_attributes[:title]=>""}
     # quote_params = defaults.merge(quote_params)
-    @quote = Quote.new(quote_params)
+    @quote = current_user.quotes.build(quote_params)
     # @creator = Creator.where(params[:creator_attributes][:name]).first_or_create
     # @source = Source.where(params[:source_attributes][:title]).first_or_create
     @user = current_user
