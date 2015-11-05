@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+
   root 'quotes#index'
+
+  resources :creators
+
+  resources :sources
 
   resources :themes
 
