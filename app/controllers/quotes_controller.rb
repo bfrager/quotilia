@@ -25,7 +25,6 @@ class QuotesController < ApplicationController
     # @creator.quotes << @quote
     # @source.quotes << @quote
     if @quote.save # && @creator.save && @source.save
-      flash[:quote_id] = @quote.id
       redirect_to @quote, notice: "Successfully created new quote!"
     else
       render 'new'
