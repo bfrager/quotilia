@@ -6,6 +6,13 @@
   </div>
 </div>
 
+<div class="Quoters">
+  Quoted by
+  <% @quote.users.each do |p| %>
+    <%= "#{p.f_name} #{p.l_name}" %>
+  <% end %>
+</div>
+
 <%= link_to "All Quotes", quotes_path %>
 <%= link_to "Edit", edit_quote_path %>
 <%= link_to "Delete", quote_path, method: :delete, data: {confirm: "Are you sure? Such a shame when knowledge is wasted..."} %>

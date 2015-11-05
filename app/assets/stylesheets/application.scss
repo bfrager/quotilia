@@ -18,3 +18,21 @@
 /*
  *= require jquery-ui;
 */
+//
+// <mid-gray Color="#6E7C82" RGB: 110, 124, 130 />
+// <light-blue Color="#A7C7D2" RGB: 167, 199, 210 />
+// <pale-blue Color="#C8DCE3" RGB: 200, 220, 227 />
+// <off-white Color="#EDECEE" RGB: 237, 236, 238 />
+// <dark-blue Color="#38435E" RGB: 56, 67, 94 />
+
+body {
+  background: #C8DCE3;
+  text-align:center;
+}
+
+.quote {
+  background: #EDECEE;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 2px;
+}
