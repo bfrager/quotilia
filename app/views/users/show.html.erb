@@ -1,3 +1,21 @@
-<h1><%= @user.username %></h1>
+<h1><%= "#{@user.f_name} #{@user.l_name}" %>'s Quotes</h1>
 
-<h2><%= "#{@user.f_name} #{@user.l_name}" %></h2>
+<% @current_user.quotes.each do |n| %>
+  <div class="quote">
+    <div class="content">
+      <%= n.content %>
+    </div>
+    <div class="quoters">
+      Quoted by
+      <% n.users.each do |p| %>
+        <div class="quoter">
+          <%= "#{p.f_name} #{p.l_name}" %>
+        </div>
+      <% end %>
+    </div>
+  <%= link_to "Details", quote_path(n) %>
+  <%= link_to "Edit", edit_quote_path(n) %>
+  <%= link_to "Delete", quote_path(n), method: :delete, data: {confirm: "Are you sure? Such a shame when knowledge is wasted..."} %>
+  </div>
+<% end %>
+<%= link_to "New Quote", new_quote_path, :class => "btn btn-lg"  %>

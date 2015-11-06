@@ -2,9 +2,7 @@ class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
 
   def index
-    @user = current_user
-    @quotes = @user.quotes.all.order("created_at DESC")
-    # @quotes = Quote.all.order("created_at DESC")
+    @quotes = Quote.all.order("created_at DESC")
 
   end
 

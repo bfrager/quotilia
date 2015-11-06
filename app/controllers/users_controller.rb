@@ -6,6 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @quotes = @user.quotes.all.order("created_at DESC")
   end
 
   def new
