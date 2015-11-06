@@ -21,8 +21,10 @@
           <div class="col-md-6">
             <div class="btn-group">
               <%= link_to "All Posts", posts_path, :class => "btn btn-default"  %>
-              <%= link_to "Edit", edit_post_path, :class => "btn btn-default" %>
-              <%= link_to "Delete", post_path, :class => "btn btn-default", method: :delete, data: {confirm: "Are you sure? Such a shame when inspiration dies..."} %>
+              <% if current_user %>
+                <%= link_to "Edit", edit_post_path, :class => "btn btn-default" %>
+                <%= link_to "Delete", post_path, :class => "btn btn-default", method: :delete, data: {confirm: "Are you sure? Such a shame when inspiration dies..."} %>
+              <% end %>
             </div>
           </div>
           <div class="col-md-3">

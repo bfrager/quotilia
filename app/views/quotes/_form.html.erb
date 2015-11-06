@@ -1,15 +1,25 @@
-<div class="col-md-6 col-md-offset-3">
+<div class="col-md-10 col-md-offset-1">
 <%= form_for @quote do |f| %>
-    <%= f.label :Quote %>
-    <%= f.text_area :content %>
+  <div class="form-group">
+    <h2><%= f.label :quote %></h2>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :content, placeholder: "you don't say..." %>
+  </div>
+  <div class="form-group">
     <%= f.fields_for :creator, @quote.creator do |c| %>
       <%= c.label :creator %>
       <%= c.text_field :creator %>
     <% end %>
+  </div>
+  <div class="form-group">
     <%= f.fields_for :source, @quote.source do |s| %>
       <%= s.label :source %>
       <%= s.text_field :source %>
     <% end %>
+  </div>
+  <div class="form-group">
     <%= f.submit %>
+  </div>
 <% end %>
 </div>

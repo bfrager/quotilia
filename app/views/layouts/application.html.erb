@@ -21,15 +21,17 @@
       <%= link_to "Quotilia", quotes_path, :class => "navbar-brand" %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <form class="navbar-form navbar-left" role="search">
+      <% if current_user %>
+      <!-- <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">Find Quotes</button>
-      </form>
+      </form> -->
       <div class="navbar-left">
         <%= link_to "Add Quote", new_quote_path, :class => "btn btn-default navbar-btn"  %>
       </div>
+      <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li class="dropdown">
