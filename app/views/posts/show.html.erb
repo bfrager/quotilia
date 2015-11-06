@@ -1,7 +1,31 @@
-<h1>Post</h1>
-<%= image_tag @post.image.url(:medium) %>
-<%= @post.description %>
-
-<%= link_to "All Posts", posts_path %>
-<%= link_to "Edit", edit_post_path %>
-<%= link_to "Delete", post_path, method: :delete, data: {confirm: "Are you sure? Such a shame when inspiration dies..."} %>
+<div id="post_show" class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading post-image">
+        <%= image_tag @post.image.url %>
+      </div>
+      <div class="panel-body">
+        <%= @post.description %>
+      </div>
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="likes">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="btn-group">
+              <%= link_to "All Posts", posts_path, :class => "btn btn-default"  %>
+              <%= link_to "Edit", edit_post_path, :class => "btn btn-default" %>
+              <%= link_to "Delete", post_path, :class => "btn btn-default", method: :delete, data: {confirm: "Are you sure? Such a shame when inspiration dies..."} %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <p class="user">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

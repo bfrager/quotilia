@@ -46,6 +46,7 @@ ruby "2.2.1"
 gem 'awesome-share-buttons', github: 'evansobkowicz/awesome-share-buttons'
 gem 'kindle', '~> 0.1.3'
 gem 'instapaper', '~> 0.3.0'
+gem 'masonry-rails', '~> 0.2.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
