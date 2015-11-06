@@ -36,6 +36,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    redirect_to login_path
   end
 
   private

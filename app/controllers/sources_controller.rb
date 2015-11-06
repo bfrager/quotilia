@@ -34,6 +34,7 @@ class SourcesController < ApplicationController
 
   def destroy
     @source.destroy
+    redirect_to sources_path
   end
 
 

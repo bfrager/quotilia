@@ -1,3 +1,7 @@
 <h1>Post</h1>
 <%= image_tag @post.image.url(:medium) %>
 <%= @post.description %>
+
+<%= link_to "All Posts", posts_path %>
+<%= link_to "Edit", edit_post_path %>
+<%= link_to "Delete", post_path, method: :delete, data: {confirm: "Are you sure? Such a shame when inspiration dies..."} %>

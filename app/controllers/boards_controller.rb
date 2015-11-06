@@ -34,6 +34,7 @@ class BoardsController < ApplicationController
 
   def destroy
     @board.destroy
+    redirect_to boards_path
   end
 
 

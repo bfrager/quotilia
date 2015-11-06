@@ -15,10 +15,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import url(https://fonts.googleapis.com/css?family=Raleway:400,300,200,100|Quicksand:400,300|Handlee|Patrick+Hand|Delius|Itim);
-
-// *= require jquery-ui;
-//
-// *= require awesome-share-buttons;
+ @import "jquery.ui.all";
 
 //
 // <mid-gray Color="#6E7C82" RGB: 110, 124, 130 />
