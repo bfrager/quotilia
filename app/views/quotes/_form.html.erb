@@ -3,11 +3,11 @@
     <%= f.label :Quote %>
     <%= f.text_area :content %>
     <%= f.fields_for :creator, @quote.creator do |c| %>
-      <%= c.label :Creator %>
+      <%= c.label :creator %>
       <%= c.text_field :creator %>
     <% end %>
     <%= f.fields_for :source, @quote.source do |s| %>
-      <%= s.label :Source %>
+      <%= s.label :source %>
       <%= s.text_field :source %>
     <% end %>
     <%= f.submit %>

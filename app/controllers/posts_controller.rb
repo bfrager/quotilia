@@ -1,13 +1,48 @@
 class PostsController < ApplicationController
-  def index
-  end
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-  def new
+  def index
+    @posts = Post.all
   end
 
   def show
   end
 
+  def new
+    @post = Post.new
+  end
+
   def edit
   end
+
+  def create
+    @post = Post.new post_params
+    if @post.save
+      redirect_to posts_path(params[:id]), notice: "Successfully created new post!"
+    else
+      render 'new'
+    end
+  end
+
+  def update
+    if @post.update post_params
+      redirect_to post_path(params[:id]), notice: "Post updated!"
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @post.destroy
+  end
+
+
+  private
+    def set_post
+      @post = Post.find(params[:id])
+    end
+
+    def post_params
+      params.require(:post).permit(:background, :stylesheet, :image)
+    end
 end
