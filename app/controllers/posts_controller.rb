@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new post_params
     if @post.save
-      redirect_to posts_path(params[:id]), notice: "Successfully created new post!"
+      redirect_to post_path(@post.id), notice: "Successfully created new post!"
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update post_params
-      redirect_to post_path(params[:id]), notice: "Post updated!"
+      redirect_to post_path(@post.id), notice: "Post updated!"
     else
       render 'edit'
     end
@@ -43,6 +43,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:background, :stylesheet, :image)
+      params.require(:post).permit(:background, :stylesheet, :image, :description)
     end
 end

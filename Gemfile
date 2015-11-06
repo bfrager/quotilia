@@ -41,6 +41,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails_12factor', group: :production
 ruby "2.2.1"
 
+gem 'awesome-share-buttons', github: 'evansobkowicz/awesome-share-buttons'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
