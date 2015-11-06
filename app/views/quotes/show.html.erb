@@ -2,7 +2,7 @@
 
 <div class="quote">
   <div class="content">
-    <%= @quote.content %>
+    <h3>"<%= @quote.content %>"</h3>
   </div>
 </div>
 
@@ -13,6 +13,6 @@
   <% end %>
 </div>
 
-<%= link_to "All Quotes", quotes_path %>
-<%= link_to "Edit", edit_quote_path %>
-<%= link_to "Delete", quote_path, method: :delete, data: {confirm: "Are you sure? Such a shame when knowledge is wasted..."} %>
+<%= link_to "All Quotes", quotes_path, :class => "btn btn-default"  %>
+<%= link_to "Edit", edit_quote_path, :class => "btn btn-default"  %>
+<%= link_to "Delete", quote_path, :class => "btn btn-default", method: :delete, data: {confirm: "Are you sure? Such a shame when knowledge is wasted..."} %>

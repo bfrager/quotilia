@@ -4,20 +4,23 @@
   <div class="box panel panel-default">
     <div class="quote">
       <div class="content">
-        <%= n.content %>
+        <h3>"<%= n.content %>"</h3>
       </div>
       <div class="panel-body">
           <div class="quoters">
-            Quoted by
             <% n.users.each do |p| %>
               <div class="quoter">
-                <%= "#{p.f_name} #{p.l_name}" %>
+                <%= "Quoted by #{p.f_name} #{p.l_name}" %>
               </div>
             <% end %>
           </div>
-        <%= link_to "Details", quote_path(n) %>
-        <%= link_to "Edit", edit_quote_path(n) %>
-        <%= link_to "Delete", quote_path(n), method: :delete, data: {confirm: "Are you sure? Such a shame when knowledge is wasted..."} %>
+          <div class="btn-group">
+            <%= link_to "Details", quote_path(n), :class => "btn btn-xs"  %>
+            <% if current_user %>
+              <%= link_to "Edit", edit_quote_path(n), :class => "btn btn-xs"  %>
+              <%= link_to "Delete", quote_path(n), :class => "btn btn-xs", method: :delete, data: {confirm: "Are you sure? Such a shame when knowledge is wasted..."} %>
+            <% end %>
+          </div>
       </div>
     </div>
   </div>

@@ -1,10 +1,10 @@
-<h1><%= "#{@user.f_name} #{@user.l_name}" %>'s Quotes</h1>
+<h1><%= "#{@user.f_name}" %>'s Quotes</h1>
 <div class="transitions-enabled" id="quotes">
 <% @current_user.quotes.each do |n| %>
 <div class="box panel panel-default">
   <div class="quote">
     <div class="content">
-      <%= n.content %>
+      <h3>"<%= n.content %>"</h3>
     </div>
     <div class="panel-body">
     <div class="quoters">
@@ -15,10 +15,58 @@
         </div>
       <% end %>
     </div>
-  <%= link_to "Details", quote_path(n) %>
-  <%= link_to "Edit", edit_quote_path(n) %>
-  <%= link_to "Delete", quote_path(n), method: :delete, data: {confirm: "Are you sure? Such a shame when knowledge is wasted..."} %>
+    <div class="btn-group">
+      <%= link_to "Details", quote_path(n), :class => "btn btn-xs" %>
+      <% if current_user %>
+        <%= link_to "Edit", edit_quote_path(n), :class => "btn btn-xs" %>
+        <%= link_to "Delete", quote_path(n), :class => "btn btn-xs", method: :delete, data: {confirm: "Are you sure? Such a shame when knowledge is wasted..."} %>
+      <% end %>
+    </div>
   </div>
   </div>
 </div>
 <% end %>
+</div>
+<h1><%= "#{@user.f_name}"%>'s Posts</h1>
+<div class="transitions-enabled" id="posts">
+<% @current_user.posts.each do |post| %>
+<div id="post_show" class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading post-image">
+        <%= image_tag post.image.url %>
+      </div>
+      <div class="panel-body">
+        <%= post.description %>
+      </div>
+      <div class="panel-footer">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="likes pull-left">
+              <%= link_to like_post_path(post), :class => "btn btn-default", method: :put do %>
+                <span class="glyphicon glyphicon-heart">
+                  <%= post.get_upvotes.size %>
+                </span>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="btn-group">
+              <%= link_to "All Posts", posts_path, :class => "btn btn-default"  %>
+              <% if current_user %>
+                <%= link_to "Edit", edit_post_path, :class => "btn btn-default" %>
+                <%= link_to "Delete", post_path, :class => "btn btn-default", method: :delete, data: {confirm: "Are you sure? Such a shame when inspiration dies..."} %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <p class="user">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+</div>
