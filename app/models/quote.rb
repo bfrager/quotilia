@@ -1,4 +1,5 @@
 class Quote < ActiveRecord::Base
+  acts_as_votable
     has_and_belongs_to_many :users
     belongs_to :creator
     has_and_belongs_to_many :themes

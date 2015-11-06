@@ -1,4 +1,4 @@
 <h1>Edit Post</h1>
 <%= image_tag @post.image.url(:medium) %>
 <%= render 'form' %>
-<%= link_to "Nevermind", @post %>
+<%= link_to "Nevermind", @post, :class => "btn btn-default" %>

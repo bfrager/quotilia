@@ -2,8 +2,12 @@ Rails.application.routes.draw do
 
   root 'quotes#index'
 
-  resources :posts
-  
+  resources :posts do
+    member do
+      put "like", to: "posts#upvote"
+    end
+  end
+
   resources :creators
 
   resources :sources
@@ -14,7 +18,11 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :quotes
+  resources :quotes do
+    member do
+      put "like", to: "quotes#upvote"
+    end
+  end
 
   get 'login', to: 'sessions#new'
   resources :sessions, only: [:new, :create, :destroy]

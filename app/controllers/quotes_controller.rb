@@ -1,5 +1,5 @@
 class QuotesController < ApplicationController
-  before_action :set_quote, only: [:show, :edit, :update, :destroy]
+  before_action :set_quote, only: [:show, :edit, :update, :destroy, :upvote]
 
   def index
     @quotes = Quote.all.order("created_at DESC")
@@ -51,6 +51,11 @@ class QuotesController < ApplicationController
   def destroy
     @quote.destroy
     redirect_to quotes_path, notice: "Quote deleted!"
+  end
+
+  def upvote
+    @quote.upvote_by current_user
+    redirect_to :back
   end
 
   private

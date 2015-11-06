@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote]
 
   def index
     @posts = Post.all
@@ -37,6 +37,10 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def upvote
+    @post.upvote_by current_user
+    redirect_to :back
+  end
 
   private
     def set_post
