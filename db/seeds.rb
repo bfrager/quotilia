@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Image.create({
+  :id => 52,
+  :asset => File.new("#{Rails.root}/path/to/somefile.jpg"),
+  :product_id => 52
+})

@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default">
       <div class="panel-heading post-image">
-        <%= image_tag @post.image.url %>
+        <%= image_tag @post.image.url(:medium) %>
       </div>
       <div class="panel-body">
         <%= @post.description %>

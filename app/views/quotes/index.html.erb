@@ -1,12 +1,42 @@
-<h1>Quotilia</h1>
-<div class="transitions-enabled" id="quotes">
+<h1>Welcome to Quotilia</h1>
+<h2>Get Inspired</h2>
+<div class="transitions-enabled" id="posts">
+<% @posts.each do |post| %>
+  <div class="box panel panel-default">
+    <%= link_to (image_tag post.image.url(:medium)), post %>
+    <div class="panel-body">
+      <h2><%= link_to post.description, post  %></h2>
+    </div>
+    <div class="panel-footer">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="likes pull-left">
+            <%= link_to like_post_path(post), :class => "btn btn-xs", method: :put do %>
+              <span class="glyphicon glyphicon-heart">
+                <%= post.get_upvotes.size %>
+              </span>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="btn-group pull-right">
+            <% if current_user %>
+              <%= link_to "Edit", edit_post_path(post), :class => "btn btn-xs" %>
+              <%= link_to "Delete", post_path(post), :class => "btn btn-xs", method: :delete, data: {confirm: "Are you sure? Such a shame when inspiration dies..."} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 <% @quotes.each do |n| %>
   <div class="box panel panel-default">
     <div class="quote">
-      <div class="content">
+      <div class="content panel-body">
         <h3>"<%= n.content %>"</h3>
       </div>
-      <div class="panel-body">
+      <div class="panel-footer">
           <div class="quoters">
             <% n.users.each do |p| %>
               <div class="quoter">
