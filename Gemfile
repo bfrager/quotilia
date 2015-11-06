@@ -49,6 +49,8 @@ gem 'instapaper', '~> 0.3.0'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'acts_as_votable', '~> 0.10.0'
 gem "http"
+gem 'faker', '~> 1.5'
+gem 'fabrication'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
