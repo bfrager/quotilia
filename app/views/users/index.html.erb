@@ -1,9 +1,0 @@
-<h1> Users index </h1>
-<% @users.each do |user|%>
-  <h2><%= user.username %></h2>
-  <ul>
-    <li>Name: <%= "#{user.f_name} #{user.l_name}" %></li>
-    <li>Email: <%= user.email %></li>
-    <li>PW Digest: <%= user.password_digest %></li>
-  </ul>
-<% end %>

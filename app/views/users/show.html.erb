@@ -3,10 +3,10 @@
 <% @current_user.quotes.each do |n| %>
 <div class="box panel panel-default">
   <div class="quote">
-    <div class="content">
+    <div class="content panel-body">
       <h3>"<%= n.content %>"</h3>
     </div>
-    <div class="panel-body">
+    <div class="panel-footer">
     <div class="quoters">
       Quoted by
       <% n.users.each do |p| %>
